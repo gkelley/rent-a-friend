@@ -11,10 +11,11 @@ def hello_world():
 @app.route("/sms", methods=['GET', 'POST'])
 def sms_reply():
     incoming_msg = request.values.get('Body', '').lower()
+    print(request.values)
 
     resp = MessagingResponse()
     msg = resp.message()
-    
+
     responded = False
     if 'quote' in incoming_msg:
         # return a quote
